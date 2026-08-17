@@ -1,4 +1,4 @@
-package core.test;
+package core.basesyntax;
 
 public abstract class Figure {
     protected String color;

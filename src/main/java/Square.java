@@ -1,4 +1,4 @@
-import core.test.Figure;
+import core.basesyntax.Figure;
 
 public class Square extends Figure {
 

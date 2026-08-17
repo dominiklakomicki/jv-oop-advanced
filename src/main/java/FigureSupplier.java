@@ -1,4 +1,4 @@
-import core.test.Figure;
+import core.basesyntax.Figure;
 import java.util.Random;
 
 public class FigureSupplier {
