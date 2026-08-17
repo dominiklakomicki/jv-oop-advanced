@@ -1,4 +1,4 @@
-import core.basesyntax.Figure;
+package core.basesyntax;
 
 public class RightTriangle extends Figure {
 

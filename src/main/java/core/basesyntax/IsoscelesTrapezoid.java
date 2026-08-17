@@ -1,4 +1,4 @@
-import core.basesyntax.Figure;
+package core.basesyntax;
 
 public class IsoscelesTrapezoid extends Figure {
 

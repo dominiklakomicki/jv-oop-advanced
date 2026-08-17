@@ -1,4 +1,5 @@
-import core.basesyntax.Figure;
+package core.basesyntax;
+
 import java.util.Random;
 
 public class FigureSupplier {
