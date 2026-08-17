@@ -1,0 +1,12 @@
+import java.util.Random;
+
+public class ColorSupplier {
+    public String getRandomColor() {
+
+        String[] colors = {"red", "blue", "yellow", "green"};
+
+        Random random = new Random();
+        int index = random.nextInt(colors.length);
+        return colors[index];
+    }
+}
