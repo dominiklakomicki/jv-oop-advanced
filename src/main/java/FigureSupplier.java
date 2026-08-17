@@ -18,13 +18,12 @@ public class FigureSupplier {
                     random.nextDouble(10),
                     colorSupplier.getRandomColor()
             );
-            case 2 ->
-                    new IsoscelesTrapezoid(
-                            colorSupplier.getRandomColor(),
-                            random.nextDouble(10),
-                            random.nextDouble(10),
-                            random.nextDouble(10)
-                    );
+            case 2 -> new IsoscelesTrapezoid(
+                    colorSupplier.getRandomColor(),
+                    random.nextDouble(10),
+                    random.nextDouble(10),
+                    random.nextDouble(10)
+            );
             case 3 -> new RightTriangle(
                     random.nextDouble(10),
                     random.nextDouble(10),
@@ -39,6 +38,6 @@ public class FigureSupplier {
     }
 
     public Figure getDefaultFigure() {
-            return new Circle(10, "White");
-        }
+        return new Circle(10, "White");
     }
+}
