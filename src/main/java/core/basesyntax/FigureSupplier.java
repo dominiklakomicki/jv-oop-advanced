@@ -3,42 +3,48 @@ package core.basesyntax;
 import java.util.Random;
 
 public class FigureSupplier {
+    private Random random = new Random();
+    private ColorSupplier colorSupplier = new ColorSupplier();
+    private static final int FIGURE_COUNT = 5;
+    private static final int MAX_SIZE = 10;
+    private static final double DEFAULT_RADIUS = 10;
+
     public Figure getRandomFigure() {
-        Random random = new Random();
-        int index = random.nextInt(5);
-
-        ColorSupplier colorSupplier = new ColorSupplier();
-
+        int index = random.nextInt(FIGURE_COUNT);
         return switch (index) {
-            case 0 -> new Square(
-                    random.nextDouble(10),
-                    colorSupplier.getRandomColor()
-            );
-            case 1 -> new Rectangle(
-                    random.nextDouble(10),
-                    random.nextDouble(10),
-                    colorSupplier.getRandomColor()
-            );
-            case 2 -> new IsoscelesTrapezoid(
-                    colorSupplier.getRandomColor(),
-                    random.nextDouble(10),
-                    random.nextDouble(10),
-                    random.nextDouble(10)
-            );
-            case 3 -> new RightTriangle(
-                    random.nextDouble(10),
-                    random.nextDouble(10),
-                    colorSupplier.getRandomColor()
-            );
-            case 4 -> new Circle(
-                    random.nextDouble(10),
-                    colorSupplier.getRandomColor()
-            );
-            default -> null;
+            case 0 -> {
+                int side = random.nextInt(MAX_SIZE) + 1;
+                String color = colorSupplier.getRandomColor();
+                yield new Square(side, color);
+            }
+            case 1 -> {
+                int width = random.nextInt(MAX_SIZE) + 1;
+                int height = random.nextInt(MAX_SIZE) + 1;
+                String color = colorSupplier.getRandomColor();
+                yield new Rectangle(width, height, color);
+            }
+            case 2 -> {
+                int baseA = random.nextInt(MAX_SIZE) + 1;
+                int height = random.nextInt(MAX_SIZE) + 1;
+                int baseB = random.nextInt(MAX_SIZE) + 1;
+                String color = colorSupplier.getRandomColor();
+                yield new IsoscelesTrapezoid(color, baseA, height, baseB);
+            }
+            case 3 -> {
+                int firstLeg = random.nextInt(MAX_SIZE) + 1;
+                int secondLeg = random.nextInt(MAX_SIZE) + 1;
+                String color = colorSupplier.getRandomColor();
+                yield new RightTriangle(firstLeg, secondLeg, color);
+            }
+            default -> {
+                int radius = random.nextInt(MAX_SIZE) + 1;
+                String color = colorSupplier.getRandomColor();
+                yield new Circle(radius, color);
+            }
         };
     }
 
     public Figure getDefaultFigure() {
-        return new Circle(10, "White");
+        return new Circle(DEFAULT_RADIUS, Color.WHITE.toString());
     }
 }
