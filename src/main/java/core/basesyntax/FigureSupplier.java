@@ -12,34 +12,31 @@ public class FigureSupplier {
 
     public Figure getRandomFigure() {
         int index = random.nextInt(FIGURE_COUNT);
+        String color = colorSupplier.getRandomColor();
+
         return switch (index) {
             case 0 -> {
                 int side = random.nextInt(MAX_SIZE) + 1;
-                String color = colorSupplier.getRandomColor();
                 yield new Square(side, color);
             }
             case 1 -> {
                 int width = random.nextInt(MAX_SIZE) + 1;
                 int height = random.nextInt(MAX_SIZE) + 1;
-                String color = colorSupplier.getRandomColor();
                 yield new Rectangle(width, height, color);
             }
             case 2 -> {
                 int baseA = random.nextInt(MAX_SIZE) + 1;
                 int height = random.nextInt(MAX_SIZE) + 1;
                 int baseB = random.nextInt(MAX_SIZE) + 1;
-                String color = colorSupplier.getRandomColor();
                 yield new IsoscelesTrapezoid(color, baseA, height, baseB);
             }
             case 3 -> {
                 int firstLeg = random.nextInt(MAX_SIZE) + 1;
                 int secondLeg = random.nextInt(MAX_SIZE) + 1;
-                String color = colorSupplier.getRandomColor();
                 yield new RightTriangle(firstLeg, secondLeg, color);
             }
             default -> {
                 int radius = random.nextInt(MAX_SIZE) + 1;
-                String color = colorSupplier.getRandomColor();
                 yield new Circle(radius, color);
             }
         };

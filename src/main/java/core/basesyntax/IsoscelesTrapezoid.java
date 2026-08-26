@@ -2,9 +2,9 @@ package core.basesyntax;
 
 public class IsoscelesTrapezoid extends Figure {
 
-    private double baseA;
-    private double baseB;
-    private double height;
+    private final double baseA;
+    private final double baseB;
+    private final double height;
 
     public IsoscelesTrapezoid(String color, double baseA, double height, double baseB) {
         super(color);
@@ -25,7 +25,7 @@ public class IsoscelesTrapezoid extends Figure {
                     + " sq. units, baseA: " + baseA
                     + " units, baseB: " + baseB
                     + " units, height: " + height
-                    + " units, color: " + color
+                    + " units, color: " + getColor()
         );
     }
 }
